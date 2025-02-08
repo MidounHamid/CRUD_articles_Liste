@@ -28,7 +28,6 @@
                             @method('DELETE')
                             <button type="submit" class="btn btn-danger"><i class="bi bi-trash"></i></button>
                         </form>
-                        <a href="{{route('familles.show', $famille->id)}}" class="btn btn-info"><i class="bi bi-eye"></i></a>
                     </div>
 
                 </td>
