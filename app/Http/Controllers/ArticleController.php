@@ -33,7 +33,8 @@ class ArticleController extends Controller
 
         $articles->create($request->all());
 
-        return redirect()->route("articles.index");    }
+        return redirect()->route("articles.index")->with("success","votre article est bien crée");
+    }
 
     /**
      * Display the specified resource.

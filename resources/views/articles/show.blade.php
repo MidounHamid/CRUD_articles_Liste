@@ -8,6 +8,7 @@
 
     <div class="card">
         <div class="card-body">
+            <p><strong>Famille:</strong> {{ $article->famille->nom_famille }}</p>
             <p><strong>Nom:</strong> {{ $article->designation }}</p>
             <p><strong>Prenom:</strong> {{ $article->prix_ht }}</p>
             <p><strong>Adresse:</strong> {{ $article->tva }}</p>
