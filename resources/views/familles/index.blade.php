@@ -22,7 +22,7 @@
                 <td>
                     <div class="d-flex">
 
-                        <a href="{{route('familles.edit', $famille->id)}}" class="btn btn-warning"> <i class="bi bi-pencil"></i></a>
+                        <a href="{{ route('familles.edit', $famille->id) }}" class="btn btn-warning"> <i class="bi bi-pencil"></i></a>
                         <form action="{{route('familles.destroy', $famille->id)}}" method="POST" onsubmit="return confirm('Etes-vous s��r de vouloir supprimer cet famille?')">
                             @csrf
                             @method('DELETE')

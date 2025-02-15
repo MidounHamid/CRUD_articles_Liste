@@ -1,6 +1,6 @@
 @extends('layouts.app') <!-- Extend the layout -->
 
-@section('title', 'Add Article') <!-- Define the title section -->
+@section('title', 'edit Article') <!-- Define the title section -->
 
 @section('content') <!-- Define the content section -->
 
@@ -9,11 +9,11 @@ $familles = App\Models\Famille::all();
 @endphp
 
 <div class="container mt-4">
-    <h2 class="text-center mb-4">Add Article</h2>
+    <h2 class="text-center mb-4">edit Article</h2>
 
-    <form action="{{ route('articles.store') }}" method="post" class="row g-3" enctype="multipart/form-data">
+    <form action="{{ route('articles.update',$article->id) }}" method="post" class="row g-3" enctype="multipart/form-data">
         @csrf
-
+        @method("PUT")
         <label for="famille_id">Famille</label>
         <select name="famille_id" id="famille_id" class="form-control" required>
             @foreach($familles as $famille)

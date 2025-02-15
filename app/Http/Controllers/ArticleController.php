@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreArticleRequest;
+use App\http\Requests\UpdateArticleRequest;
 use App\Models\Article;
 use Illuminate\Http\Request;
 
@@ -27,8 +29,12 @@ class ArticleController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreArticleRequest $request)
     {
+        // $request->validate([
+        //     "designation"=>["required","string","min:3"],
+        //     "prix_ht"=>["required","numeric","min:5"]
+        // ]);
         $articles = new Article();
 
         $articles->create($request->all());
@@ -56,11 +62,18 @@ class ArticleController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Article $article)
+    // public function update(Request $request, Article $article)
+    public function update(UpdateArticleRequest $request, Article $article)
+
     {
+        // $request->validate([
+        //     "designation"=>["required","string","min:3"],
+        //     "prix_ht"=>["required","numeric","min:5"]
+        // ]);
+
         $article->update($request->all());
 
-        return redirect()->route("articles.index");
+        return redirect()->route("articles.index")->with("update","votre article est bien modifier");
     }
 
     /**
@@ -69,6 +82,6 @@ class ArticleController extends Controller
     public function destroy(Article $article)
     {
         $article->delete();
-        return redirect()->route("articles.index");
+        return redirect()->route("articles.index")->with("destroy","votre article est bien supprimer");
     }
 }
