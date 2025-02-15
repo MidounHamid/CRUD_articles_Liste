@@ -4,7 +4,7 @@
 
 @section('content') <!-- Define the content section -->
     <div class="container mt-4">
-        @include('layouts.Components.Flachbag')
+        @include('layouts.Components.Flashbag')
         <h1 class="text-center mb-4">List of Articles</h1>
 
         {{-- Add Article Button --}}

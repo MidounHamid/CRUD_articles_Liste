@@ -28,4 +28,22 @@ class StoreArticleRequest extends FormRequest
             "tva" => ["required", "numeric","min:0","max:20"]
         ];
     }
+    public function messages(): array
+    {
+        return [
+            'designation.required' => 'The designation field is required.',
+            'designation.string' => 'The designation must be a string.',
+            'designation.min' => 'The designation must be at least 3 characters.',
+            'designation.unique' => 'The designation must be unique.',
+            'prix_ht.required' => 'The price field is required.',
+            'prix_ht.numeric' => 'The price must be a number.',
+            'prix_ht.min' => 'The price must be at least 5.',
+            'prix_ht.regex' => 'The price must be in a valid format (e.g., 10.99).',
+            'tva.required' => 'The TVA field is required.',
+            'tva.numeric' => 'The TVA must be a number.',
+            'tva.min' => 'The TVA must be at least 0.',
+            'tva.max' => 'The TVA must not exceed 20.',
+        ];
+    }
+
 }
